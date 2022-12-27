@@ -17,19 +17,49 @@
                 <h2 class="titleGame__text text-center">Blackjack</h2>
             </div>
         </div>
-        <div class="row buttonControls">
-            <div class="col-4">
+        <div class="row controlButtons">
+            <div class="col-sm-4">
                 <button class="btn btn-danger btn-block">Nuevo juego</button>
             </div>
-            <div class="col-4">
+            <div class="col-sm-4">
                 <button class="btn btn-success btn-block">Pedir carta</button>
             </div>
-            <div class="col-4">
+            <div class="col-sm-4">
                 <button class="btn btn-warning btn-block">Detener</button>
             </div>
         </div>
-    </div>
+        <div class="row contentGame__container">
+            <div class="col-12 contentGame__wrapper">
+                <div class="row cardGame">
+                    <div class="col-12">
+                        <h4 class="cardGame__playerText">Jugador 1 - <span>0</span></h4>
+                    </div>
+                    <div class="col-12">
+                        <div class="cardGame__container" id="player__cards">
+                            <img class="cartGame__image" src="./assets/images/cartas/10C.png" alt="" width="120px">
+                            <img class="cartGame__image" src="./assets/images/cartas/10D.png" alt="" width="120px">
+                            <img class="cartGame__image" src="./assets/images/cartas/10H.png" alt="" width="120px">
+                            <img class="cartGame__image" src="./assets/images/cartas/10S.png" alt="" width="120px">
+                        </div>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="cardGame__playerText">Computadora - <span>0</span></h4>
+                    </div>
+                    <div class="col-12">
+                        <div class="cardGame__container" id="computer__cards">
+                            <img class="cartGame__image" src="./assets/images/cartas/10C.png" alt="" width="120px">
+                            <img class="cartGame__image" src="./assets/images/cartas/10D.png" alt="" width="120px">
+                            <img class="cartGame__image" src="./assets/images/cartas/10H.png" alt="" width="120px">
+                            <img class="cartGame__image" src="./assets/images/cartas/10S.png" alt="" width="120px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
