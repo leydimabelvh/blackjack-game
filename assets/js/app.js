@@ -1,12 +1,12 @@
 /**
- * 2T = Two of Clubs (Tréboles)
+ * 2C = Two of Clubs (Tréboles)
  * 2D= Two of Diamonds (Diamantes)
  * 2H = Two of Hearts (Corazones)
  * 2S = Two of Spades (Espadas)
  */
 
 let deck = [];
-let types = ['T', 'D', 'H', 'S'];
+let types = ['C', 'D', 'H', 'S'];
 let specials = ['A', 'J', 'K', 'Q'];
 let playerPoints = 0;
 let computerPoints = 0;
@@ -14,6 +14,8 @@ let computerPoints = 0;
 //Referencias de HTML
 const btnGetCard = document.querySelector('#btnGetCard');
 const tagPoints = document.querySelectorAll('span');
+const playerCards = document.querySelector('#player__cards');
+
 
 
 //Función que crea una nueva baraja
@@ -92,5 +94,24 @@ btnGetCard.addEventListener('click', () => {
     
     tagPoints[0].innerText = playerPoints;
     console.log(tagPoints);
+
+    //Insertar imagen de carta
+    const imageCard = document.createElement('img');
+    imageCard.src = `./assets/images/cartas/${card}.png`;
+    imageCard.classList.add('cartGame__image');
+    imageCard.alt = 'Image of a deck of cards';
+    imageCard.width = '120';
+    playerCards.append(imageCard);
+
+    //Control de puntos
+    if (playerPoints > 21) {
+        console.warn('Lo siento, perdiste.');
+        btnGetCard.disabled = true;
+    } else if (playerPoints === 21) {
+        console.warn('¡Genial, 21!');
+        btnGetCard.disabled = true;
+    }
+
+
 });
 
