@@ -1,12 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2F4F30;
+    color: #FFFFFF;
+}
+
 .titleGame {
     background-color: #1c1c1c;
-    padding: 24px 0;
+    padding: 1.5rem 0;
 }
 
 .titleGame__text {
     color: #FFFFFF;
+    margin: 0;
 }
 
-.buttonControls {
-    padding: 24px 0;
+.controlButtons {
+    padding: 24px .75rem;
+}
+
+.cardGame {
+    margin-bottom: 2rem;
+    block-size: 16.5rem; /*264px*/
+}
+
+.cardGame__playerText {
+    color: #FFFFFF;
+    padding: 1.5rem .75rem;
+}
+
+.cardGame__playerText span {
+    font-size: .875rem;
+}
+
+.cartGame__image {
+    inline-size: 7.5rem;
+    position: relative;
+    left: 87px;
+    margin-left: -75px;
+}
+
+@media screen and (max-width: 575.98px) {
+    .controlButtons > * {
+        margin-bottom: 24px;
+    }
+    .controlButtons > *:last-of-type {
+        margin-bottom: 0;
+    }
 }
