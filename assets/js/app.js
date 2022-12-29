@@ -8,6 +8,13 @@
 let deck = [];
 let types = ['T', 'D', 'H', 'S'];
 let specials = ['A', 'J', 'K', 'Q'];
+let playerPoints = 0;
+let computerPoints = 0;
+
+//Referencias de HTML
+const btnGetCard = document.querySelector('#btnGetCard');
+const tagPoints = document.querySelectorAll('span');
+
 
 //Función que crea una nueva baraja
 function createDeck() {
@@ -43,8 +50,8 @@ const getCard = () => {
 
     const card = deck.pop();
         
-    console.log(deck);
-    console.log(card);
+    // console.log(deck);
+    // console.log(card);
 
     return card;
 }
@@ -73,4 +80,17 @@ const showCardValue = (card) => {
 // showCardValue(getCard());
 showCardValue('AC');
 
+
+//Eventos
+btnGetCard.addEventListener('click', () => {
+    const card = getCard();
+    // playerPoints = playerPoints + showCardValue();
+    playerPoints += showCardValue(card);
+
+    console.log(card);
+    console.log(playerPoints);
+    
+    tagPoints[0].innerText = playerPoints;
+    console.log(tagPoints);
+});
 
