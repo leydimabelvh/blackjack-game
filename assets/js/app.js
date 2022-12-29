@@ -51,6 +51,26 @@ const getCard = () => {
 
 getCard();
 
+//Función que permite saber el valor de la carta
+const showCardValue = (card) => {
+    // const value = card[0];
+    const value = card.substring(0, card.length - 1);
+    //let points = 0; 
 
+    // if (isNaN(value)) {
+    //     points = (value === 'A') ? 11 : 10;
+    // } else {
+    //     points = value * 1;
+    // }
+
+    // (isNaN(value)) ? (points = (value === 'A') ? 11 : 10) : points = value * 1;
+    return ( isNaN(value) ) ? 
+            ( ( value === 'A' ) ? 11 : 10 ) 
+            : value * 1;
+
+}
+
+// showCardValue(getCard());
+showCardValue('AC');
 
 
