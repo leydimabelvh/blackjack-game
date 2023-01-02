@@ -196,15 +196,6 @@ btnNewGame.addEventListener('click', () => {
     //Remover imagen de carta
     playerCards.innerHTML = '';
     computerCards.innerHTML = '';
-
-
-    // playerCards.remove();
-    // computerCards.remove();
-
-    // const imageCard = document.createElement('img');
-    // playerCards.remove(imageCard);
-    // computerCards.remove(imageCard);
-
 });
 
 
