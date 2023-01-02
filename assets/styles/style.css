@@ -40,11 +40,20 @@ body {
     margin-left: -75px;
 }
 
-@media screen and (max-width: 575.98px) {
+
+
+@media screen and (max-width: 638.98px) {
     .controlButtons > * {
         margin-bottom: 24px;
     }
     .controlButtons > *:last-of-type {
         margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 638.99px) {
+    .col-mm-4 {
+        flex: 0 0 auto;
+        width: 33.33333333%;
     }
 }

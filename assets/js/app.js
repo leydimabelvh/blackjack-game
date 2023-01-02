@@ -13,8 +13,11 @@ let computerPoints = 0;
 
 //Referencias de HTML
 const btnGetCard = document.querySelector('#btnGetCard');
+const btnStopGame = document.querySelector('#btnStopGame');
+const btnNewGame = document.querySelector('#btnNewGame');
 const tagPoints = document.querySelectorAll('span');
 const playerCards = document.querySelector('#player__cards');
+const computerCards = document.querySelector('#computer__cards');
 
 
 
@@ -83,6 +86,35 @@ const showCardValue = (card) => {
 showCardValue('AC');
 
 
+const generateComputerShift = (minimumPoints) => {
+    do {
+
+        const card = getCard();
+        // computerPoints = computerPoints + showCardValue();
+        computerPoints += showCardValue(card);
+    
+        console.log(card);
+        console.log(computerPoints);
+        
+        tagPoints[1].innerText = computerPoints;
+        console.log(tagPoints);
+    
+        //Insertar imagen de carta
+        const imageCard = document.createElement('img');
+        imageCard.src = `./assets/images/cartas/${card}.png`;
+        imageCard.classList.add('cartGame__image');
+        imageCard.alt = 'Image of a deck of cards';
+        imageCard.width = '120';
+        computerCards.append(imageCard);
+
+        if (minimumPoints > 21) {
+            break;
+        }
+        
+    } while ((computerPoints < minimumPoints) && (minimumPoints <= 21));
+
+}
+
 //Eventos
 btnGetCard.addEventListener('click', () => {
     const card = getCard();
@@ -107,11 +139,18 @@ btnGetCard.addEventListener('click', () => {
     if (playerPoints > 21) {
         console.warn('Lo siento, perdiste.');
         btnGetCard.disabled = true;
+        btnStopGame.disabled = true;
+        generateComputerShift(playerPoints);
+
     } else if (playerPoints === 21) {
         console.warn('¡Genial, 21!');
         btnGetCard.disabled = true;
+        btnStopGame.disabled = true;
+        generateComputerShift(playerPoints);
     }
-
-
 });
+
+
+
+
 

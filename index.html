@@ -17,35 +17,39 @@
                 <h2 class="titleGame__text text-center">Blackjack</h2>
             </div>
         </div>
-        <div class="row controlButtons">
-            <div class="col-sm-4">
-                <button id="btnNewGame" class="btn btn-danger btn-block">Nuevo juego</button>
-            </div>
-            <div class="col-sm-4">
-                <button id="btnGetCard" class="btn btn-success btn-block">Pedir carta</button>
-            </div>
-            <div class="col-sm-4">
-                <button id="btnStopGame" class="btn btn-warning btn-block">Detener</button>
-            </div>
-        </div>
-        <div class="row contentGame__container">
-            <div class="col-12 contentGame__wrapper">
-                <div class="row cardGame">
-                    <div class="col-12">
-                        <h4 class="cardGame__playerText">Jugador 1 - <span>0</span></h4>
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <div class="row controlButtons">
+                    <div class="col-12 col-mm-4">
+                        <button id="btnNewGame" class="btn btn-danger btn-block">Nuevo juego</button>
                     </div>
-                    <div class="col-12">
-                        <div class="cardGame__container" id="player__cards">
-                        </div>
+                    <div class="col-12 col-mm-4">
+                        <button id="btnGetCard" class="btn btn-success btn-block">Pedir carta</button>
+                    </div>
+                    <div class="col-12 col-mm-4">
+                        <button id="btnStopGame" class="btn btn-warning btn-block">Detener</button>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <h4 class="cardGame__playerText">Computadora - <span>0</span></h4>
-                    </div>
-                    <div class="col-12">
-                        <div class="cardGame__container" id="computer__cards">
+                <div class="row contentGame__container">
+                    <div class="col-12 contentGame__wrapper">
+                        <div class="row cardGame">
+                            <div class="col-12">
+                                <h4 class="cardGame__playerText">Jugador 1 - <span>0</span></h4>
+                            </div>
+                            <div class="col-12">
+                                <div class="cardGame__container" id="player__cards">
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="col-12">
+                                <h4 class="cardGame__playerText">Computadora - <span>0</span></h4>
+                            </div>
+                            <div class="col-12">
+                                <div class="cardGame__container" id="computer__cards">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
