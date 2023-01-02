@@ -168,6 +168,13 @@ btnGetCard.addEventListener('click', () => {
     }
 });
 
+btnStopGame.addEventListener('click', () => {
+    btnGetCard.disabled = true;
+    btnStopGame.disabled = true;
+
+    generateComputerShift(playerPoints);
+});
+
 
 
 
