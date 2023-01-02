@@ -175,7 +175,37 @@ btnStopGame.addEventListener('click', () => {
     generateComputerShift(playerPoints);
 });
 
+btnNewGame.addEventListener('click', () => {
+    console.clear();
+    //Habilar botones
+    btnGetCard.disabled = false;
+    btnStopGame.disabled = false;
+    
+    //Resetear baraja
+    deck = [];
+    createDeck();
 
+    //Resetear puntos
+    playerPoints = 0;
+    computerPoints = 0;
+    
+    //Resetear texto de puntaje
+    tagPoints[0].innerText = 0;
+    tagPoints[1].innerText = 0;
+
+    //Remover imagen de carta
+    playerCards.innerHTML = '';
+    computerCards.innerHTML = '';
+
+
+    // playerCards.remove();
+    // computerCards.remove();
+
+    // const imageCard = document.createElement('img');
+    // playerCards.remove(imageCard);
+    // computerCards.remove(imageCard);
+
+});
 
 
 
