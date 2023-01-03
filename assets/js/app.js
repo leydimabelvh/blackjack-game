@@ -6,18 +6,21 @@
    * 2S = Two of Spades (Espadas)
    */
 
-  let types = ["C", "D", "H", "S"];
-  let specials = ["A", "J", "K", "Q"];
-  let playerPoints = 0;
-  let computerPoints = 0;
+  let types = ["C", "D", "H", "S"],
+      specials = ["A", "J", "K", "Q"];
+
+  let playerPoints = 0,
+      computerPoints = 0;
 
   //Referencias de HTML
-  const btnGetCard = document.querySelector("#btnGetCard");
-  const btnStopGame = document.querySelector("#btnStopGame");
-  const btnNewGame = document.querySelector("#btnNewGame");
+  const btnGetCard = document.querySelector("#btnGetCard"),
+        btnStopGame = document.querySelector("#btnStopGame"),
+        btnNewGame = document.querySelector("#btnNewGame");
+
   const tagPoints = document.querySelectorAll("span");
-  const playerCards = document.querySelector("#player__cards");
-  const computerCards = document.querySelector("#computer__cards");
+
+  const playerCards = document.querySelector("#player__cards"),
+        computerCards = document.querySelector("#computer__cards");
 
   //Función que inicializar el juego
   function initialiseGame() {
@@ -58,9 +61,6 @@
     
     return isNaN(value) ? (value === "A" ? 11 : 10) : value * 1;
   };
-
-  // showCardValue(getCard());
-  showCardValue("AC");
 
   const generateComputerShift = (minimumPoints) => {
     do {
