@@ -6,7 +6,6 @@
    * 2S = Two of Spades (Espadas)
    */
 
-  let deck = [];
   let types = ["C", "D", "H", "S"];
   let specials = ["A", "J", "K", "Q"];
   let playerPoints = 0;
@@ -22,6 +21,8 @@
 
   //Función que crea una nueva baraja
   function createDeck() {
+    let deck = [];
+
     for (let i = 2; i < 11; i++) {
       for (const type of types) {
         deck.push(i + type);
@@ -34,13 +35,7 @@
       }
     }
 
-    // console.log(deck);
-
-    deck = _.shuffle(deck);
-
-    console.log(deck);
-
-    return deck;
+    return _.shuffle(deck);
   }
 
   createDeck();
