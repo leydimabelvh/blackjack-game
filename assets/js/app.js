@@ -19,6 +19,11 @@
   const playerCards = document.querySelector("#player__cards");
   const computerCards = document.querySelector("#computer__cards");
 
+  //Función que inicializar el juego
+  function initialiseGame() {
+    deck = createDeck();
+  }
+
   //Función que crea una nueva baraja
   function createDeck() {
     let deck = [];
@@ -37,8 +42,6 @@
 
     return _.shuffle(deck);
   }
-
-  createDeck();
 
   //Función que permite tomar una carta de la baraja
   const getCard = () => {
