@@ -6,11 +6,12 @@
    * 2S = Two of Spades (Espadas)
    */
 
+  let deck = [];
+
   let types = ["C", "D", "H", "S"],
       specials = ["A", "J", "K", "Q"];
 
-  let playerPoints = 0,
-      computerPoints = 0;
+  let playersPoints = [];
 
   //Referencias de HTML
   const btnGetCard = document.querySelector("#btnGetCard"),
@@ -23,13 +24,17 @@
         computerCards = document.querySelector("#computer__cards");
 
   //Función que inicializar el juego
-  function initialiseGame() {
+  const initialiseGame = (numberPlayers = 2) => {
     deck = createDeck();
+
+    for (let i = 0; i < numberPlayers; i++) {
+       playersPoints.push(0);
+    }
   }
 
   //Función que crea una nueva baraja
   function createDeck() {
-    let deck = [];
+    deck = [];
 
     for (let i = 2; i < 11; i++) {
       for (const type of types) {
@@ -61,6 +66,10 @@
     
     return isNaN(value) ? (value === "A" ? 11 : 10) : value * 1;
   };
+
+  const accumulatePoints = () => {
+
+  }
 
   const generateComputerShift = (minimumPoints) => {
     do {
