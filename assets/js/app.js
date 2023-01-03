@@ -30,6 +30,7 @@
     for (let i = 0; i < numberPlayers; i++) {
        playersPoints.push(0);
     }
+    console.log({playersPoints});
   }
 
   //Función que crea una nueva baraja
@@ -67,21 +68,24 @@
     return isNaN(value) ? (value === "A" ? 11 : 10) : value * 1;
   };
 
-  const accumulatePoints = () => {
+  const accumulatePoints = (card, shift) => {
+      // playersPoints[shift] = playersPoints[shift] + showCardValue();
+      playersPoints[shift] += showCardValue(card);
 
+      tagPoints[shift].innerText = playersPoints[shift];
+
+      return playersPoints[shift];
+  }
+
+  const showImageCard = () => {
+    
   }
 
   const generateComputerShift = (minimumPoints) => {
     do {
       const card = getCard();
-      // computerPoints = computerPoints + showCardValue();
-      computerPoints += showCardValue(card);
-
-      console.log(card);
-      console.log(computerPoints);
-
-      tagPoints[1].innerText = computerPoints;
-      console.log(tagPoints);
+     
+      accumulatePoints(card, playersPoints.length - 1);
 
       //Insertar imagen de carta
       const imageCard = document.createElement("img");
@@ -117,14 +121,8 @@
   //Eventos
   btnGetCard.addEventListener("click", () => {
     const card = getCard();
-    // playerPoints = playerPoints + showCardValue();
-    playerPoints += showCardValue(card);
-
-    console.log(card);
-    console.log(playerPoints);
-
-    tagPoints[0].innerText = playerPoints;
-    console.log(tagPoints);
+    
+    const playerPoints = accumulatePoints(card, 0);
 
     //Insertar imagen de carta
     const imageCard = document.createElement("img");
@@ -161,13 +159,14 @@
     btnGetCard.disabled = false;
     btnStopGame.disabled = false;
 
+    initialiseGame();
     //Resetear baraja
-    deck = [];
-    createDeck();
+    // deck = [];
+    // createDeck();
 
     //Resetear puntos
-    playerPoints = 0;
-    computerPoints = 0;
+    // playerPoints = 0;
+    // computerPoints = 0;
 
     //Resetear texto de puntaje
     tagPoints[0].innerText = 0;
