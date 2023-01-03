@@ -49,15 +49,8 @@
       throw "Error: No hay cartas en la baraja.";
     }
 
-    const card = deck.pop();
-
-    // console.log(deck);
-    // console.log(card);
-
-    return card;
+    return deck.pop();
   };
-
-  getCard();
 
   //Función que permite saber el valor de la carta
   const showCardValue = (card) => {
