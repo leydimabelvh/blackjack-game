@@ -20,18 +20,17 @@
 
   const tagPoints = document.querySelectorAll("span");
 
-  const playerCards = document.querySelector("#player__cards"),
-        computerCards = document.querySelector("#computer__cards");
+  const playersCards = document.querySelectorAll(".cardGame__container");
 
   //Función que inicializar el juego
   const initialiseGame = (numberPlayers = 2) => {
     deck = createDeck();
 
     for (let i = 0; i < numberPlayers; i++) {
-       playersPoints.push(0);
+      playersPoints.push(0);
     }
-    console.log({playersPoints});
-  }
+    console.log({ playersPoints });
+  };
 
   //Función que crea una nueva baraja
   function createDeck() {
@@ -64,36 +63,38 @@
   //Función que permite saber el valor de la carta
   const showCardValue = (card) => {
     const value = card.substring(0, card.length - 1);
-    
+
     return isNaN(value) ? (value === "A" ? 11 : 10) : value * 1;
   };
 
   const accumulatePoints = (card, shift) => {
-      // playersPoints[shift] = playersPoints[shift] + showCardValue();
-      playersPoints[shift] += showCardValue(card);
+    // playersPoints[shift] = playersPoints[shift] + showCardValue();
+    playersPoints[shift] += showCardValue(card);
 
-      tagPoints[shift].innerText = playersPoints[shift];
+    tagPoints[shift].innerText = playersPoints[shift];
 
-      return playersPoints[shift];
-  }
+    return playersPoints[shift];
+  };
 
-  const showImageCard = () => {
-    
-  }
+  const showImageCard = (card, shift) => {
+    //Insertar imagen de carta
+    const imageCard = document.createElement("img");
+    imageCard.src = `./assets/images/cartas/${card}.png`;
+    imageCard.classList.add("cartGame__image");
+    imageCard.alt = "Image of a deck of cards";
+    imageCard.width = "120";
+    playersCards[shift].append(imageCard);
+  };
 
   const generateComputerShift = (minimumPoints) => {
     do {
       const card = getCard();
-     
+      
+      //Acumular puntos de juagdor
       accumulatePoints(card, playersPoints.length - 1);
 
       //Insertar imagen de carta
-      const imageCard = document.createElement("img");
-      imageCard.src = `./assets/images/cartas/${card}.png`;
-      imageCard.classList.add("cartGame__image");
-      imageCard.alt = "Image of a deck of cards";
-      imageCard.width = "120";
-      computerCards.append(imageCard);
+      showImageCard(card, playersPoints.length - 1);
 
       if (minimumPoints > 21) {
         break;
@@ -121,16 +122,11 @@
   //Eventos
   btnGetCard.addEventListener("click", () => {
     const card = getCard();
-    
+
     const playerPoints = accumulatePoints(card, 0);
 
     //Insertar imagen de carta
-    const imageCard = document.createElement("img");
-    imageCard.src = `./assets/images/cartas/${card}.png`;
-    imageCard.classList.add("cartGame__image");
-    imageCard.alt = "Image of a deck of cards";
-    imageCard.width = "120";
-    playerCards.append(imageCard);
+    showImageCard(card, 0);
 
     //Control de puntos
     if (playerPoints > 21) {
