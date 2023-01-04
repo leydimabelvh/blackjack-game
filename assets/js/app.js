@@ -135,7 +135,7 @@
       const card = getCard();
 
       //Acumular puntos de juagdor
-      accumulatePoints(card, playersPoints.length - 1);
+      computerPoints = accumulatePoints(card, playersPoints.length - 1);
 
       //Insertar imagen de carta
       showImageCard(card, playersPoints.length - 1);
@@ -160,6 +160,7 @@
       btnGetCard.disabled = true;
       btnStopGame.disabled = true;
       generateComputerShift(playerPoints);
+
     } else if (playerPoints === 21) {
       console.warn("¡Genial, 21!");
       btnGetCard.disabled = true;
@@ -169,13 +170,15 @@
   });
 
   btnStopGame.addEventListener("click", () => {
+
     btnGetCard.disabled = true;
     btnStopGame.disabled = true;
 
-    generateComputerShift(playerPoints);
+    generateComputerShift(playersPoints[0]);
   });
 
   btnNewGame.addEventListener("click", () => {
     initialiseGame();
   });
+
 })();
