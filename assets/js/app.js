@@ -118,10 +118,7 @@
       //Insertar imagen de carta
       showImageCard(card, playersPoints.length - 1);
 
-      if (minimumPoints > 21) {
-        break;
-      }
-    } while (computerPoints < minimumPoints && minimumPoints <= 21);
+    } while ((computerPoints < minimumPoints) && (minimumPoints <= 21));
 
     determinateResult();
   };
