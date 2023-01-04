@@ -1,4 +1,4 @@
-(() => {
+const blackjackModule = (() => {
   /**
    * 2C = Two of Clubs (Tréboles)
    * 2D= Two of Diamonds (Diamantes)
@@ -38,7 +38,6 @@
     for (let i = 0; i < numberPlayers; i++) {
       playersPoints.push(0);
     }
-    console.log({ playersPoints });
 
     //Resetear texto de puntaje
     tagPoints.forEach(element => element.innerText = 0);
@@ -100,7 +99,7 @@
     //Insertar imagen de carta
     const imageCard = document.createElement("img");
     imageCard.src = `./assets/images/cartas/${card}.png`;
-    imageCard.classList.add("cartGame__image");
+    imageCard.classList.add("cardGame__image");
     imageCard.alt = "Image of a deck of cards";
     imageCard.width = "120";
     playersCards[shift].append(imageCard);
@@ -180,5 +179,9 @@
   btnNewGame.addEventListener("click", () => {
     initialiseGame();
   });
+
+  return {
+    newGame: initialiseGame
+  };
 
 })();
