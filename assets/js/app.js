@@ -22,14 +22,34 @@
 
   const playersCards = document.querySelectorAll(".cardGame__container");
 
+  //Deshabilitar botones
+  btnGetCard.disabled = true;
+  btnStopGame.disabled = true;
+
   //Función que inicializar el juego
   const initialiseGame = (numberPlayers = 2) => {
+    console.clear();
+
+    //Resetear baraja
     deck = createDeck();
 
+    //Resetear puntos
+    playersPoints = [];
     for (let i = 0; i < numberPlayers; i++) {
       playersPoints.push(0);
     }
     console.log({ playersPoints });
+
+    //Resetear texto de puntaje
+    tagPoints.forEach(element => element.innerText = 0);
+
+    //Remover imagen de carta
+    playersCards.forEach(element => element.innerHTML = "");
+
+    //Habilitar botones
+    btnGetCard.disabled = false;
+    btnStopGame.disabled = false;
+
   };
 
   //Función que crea una nueva baraja
@@ -109,6 +129,8 @@
   }
 
   const generateComputerShift = (minimumPoints) => {
+    let computerPoints = 0;
+
     do {
       const card = getCard();
 
@@ -154,26 +176,6 @@
   });
 
   btnNewGame.addEventListener("click", () => {
-    console.clear();
-    //Habilar botones
-    btnGetCard.disabled = false;
-    btnStopGame.disabled = false;
-
     initialiseGame();
-    //Resetear baraja
-    // deck = [];
-    // createDeck();
-
-    //Resetear puntos
-    // playerPoints = 0;
-    // computerPoints = 0;
-
-    //Resetear texto de puntaje
-    tagPoints[0].innerText = 0;
-    tagPoints[1].innerText = 0;
-
-    //Remover imagen de carta
-    playerCards.innerHTML = "";
-    computerCards.innerHTML = "";
   });
 })();
