@@ -1,4 +1,6 @@
 const blackjackModule = (() => {
+  'use strict'
+
   /**
    * 2C = Two of Clubs (Tréboles)
    * 2D= Two of Diamonds (Diamantes)
